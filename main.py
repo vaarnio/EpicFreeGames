@@ -9,8 +9,10 @@ def getOffers():
 def filterFunct(offer):
     try:
         if(offer['promotions'] == None):
+            #All freeGamePromotions don't have entries under 'promotions'
             return False
     except NameError:
+        #Not sure if there are freeGamePromotions that don't have 'promotions' entry but the NameError check is here just to be safe.
         print('NameError')
         return False
     else:
