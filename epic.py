@@ -1,8 +1,16 @@
 import requests
+import os
+import json
 
 def getOffers():
     r = requests.get('https://store-site-backend-static-ipv4.ak.epicgames.com/freeGamesPromotions?locale=en-US&country=FI&allowCountries=FI')
-    offers = r.json()['data']['Catalog']['searchStore']['elements']
+    j = r.json()
+
+    # test case where multiple games are 100% off:
+    # f = open('test_files\multipleFree.json')
+    # j = json.load(f)
+    
+    offers = j['data']['Catalog']['searchStore']['elements']
     return offers
 
 def getFree():
@@ -19,7 +27,7 @@ def filterFunct(offer):
         print('NameError')
         return False
     else:
-        # filter out games with no promotions
+        # filter out games with no promotional offers
         promotions = offer['promotions']['promotionalOffers']
         if(len(promotions) <= 0):
             return False

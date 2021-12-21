@@ -5,28 +5,30 @@ import pickle
 
 token = os.environ.get('epic_bot_token')
 bot = telegram.Bot(token=token)
-
 try:
-    group_ids = pickle.load(open('group_ids', 'rb'))
+    chat_ids = pickle.load(open('chat_ids', 'rb'))
 except FileNotFoundError:
-    group_ids = []
+    chat_ids = []
 
-updates = bot.get_updates()
-for update in updates:
-    try:
-        new_chat = update['my_chat_member']['chat']
-        if new_chat['id'] not in group_ids:
-            print('New group chat: {0}'.format(new_chat['id']))
-            group_ids.append(new_chat['id'])
-    except TypeError:
-        pass
+def updateChatIds():
+    updates = bot.get_updates()
+    for update in updates:
+        try:
+            new_group = update['my_chat_member']['chat']
+            if new_group['id'] not in chat_ids:
+                print('New group chat: {0}'.format(new_group['id']))
+                chat_ids.append(new_group['id'])
+        except TypeError:
+            pass
+    pickle.dump(chat_ids, open('chat_ids', 'wb'))
 
-message = ''.join([epic.offerToString(offer) + '\n' for offer in epic.getFree()])
+def sendMessage(message):
+    for c_id in chat_ids:
+        try:
+            bot.send_message(text=message, chat_id=c_id)
+        except telegram.error.BadRequest:
+            print('Could not send message to: {0}'.format(c_id))
 
-for c_id in group_ids:
-    try:
-        bot.send_message(text=message, chat_id=c_id)
-    except telegram.error.BadRequest:
-        print('Could not send message to: {0}'.format(c_id))
-
-pickle.dump(group_ids, open('group_ids', 'wb'))
+def updateAndMessage(message):
+    updateChatIds()
+    sendMessage(message)
