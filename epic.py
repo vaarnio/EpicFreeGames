@@ -30,8 +30,6 @@ def filterFunct(offer):
             return True
 
 def offerToString(offer):
-    # end daten aikavyöhyke mysteeri, joten jää syssymmälle.
-    # endDate = offer['promotions']['promotionalOffers'][0]['promotionalOffers'][0]['endDate']
     return offer['title']
 
 def main():
