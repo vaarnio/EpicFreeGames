@@ -15,9 +15,9 @@ updates = bot.get_updates()
 for update in updates:
     try:
         new_chat = update['my_chat_member']['chat']
-        if new_chat.id not in group_ids:
-            print('New group chat: {0}'.format(new_chat.id))
-            group_ids.append(new_chat.id)
+        if new_chat['id'] not in group_ids:
+            print('New group chat: {0}'.format(new_chat['id']))
+            group_ids.append(new_chat['id'])
     except TypeError:
         pass
 
