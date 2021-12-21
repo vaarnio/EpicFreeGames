@@ -21,8 +21,6 @@ for update in updates:
     except TypeError:
         pass
 
-group_ids = list(set(group_ids)) #remove duplicates by converting to set and back to list
-
 message = ''.join([epic.offerToString(offer) + '\n' for offer in epic.getFree()])
 
 for c_id in group_ids:
