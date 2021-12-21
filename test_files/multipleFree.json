@@ -698,7 +698,7 @@
                                             "endDate": "2022-01-06T16:00:00.000Z",
                                             "discountSetting": {
                                                 "discountType": "PERCENTAGE",
-                                                "discountPercentage": 35
+                                                "discountPercentage": 10
                                             }
                                         }
                                     ]
@@ -859,7 +859,7 @@
                                             "endDate": "2022-01-06T16:00:00.000Z",
                                             "discountSetting": {
                                                 "discountType": "PERCENTAGE",
-                                                "discountPercentage": 20
+                                                "discountPercentage": 10
                                             }
                                         }
                                     ]
@@ -1020,7 +1020,7 @@
                                             "endDate": "2022-01-06T16:00:00.000Z",
                                             "discountSetting": {
                                                 "discountType": "PERCENTAGE",
-                                                "discountPercentage": 0
+                                                "discountPercentage": 10
                                             }
                                         }
                                     ]
@@ -1310,8 +1310,7 @@
                                             "startDate": "2021-12-19T16:00:00.000Z",
                                             "endDate": "2021-12-20T16:00:00.000Z",
                                             "discountSetting": {
-                                                "discountType": "PERCENTAGE",
-                                                "discountPercentage": 0
+                                                "discountType": "PERCENTAGE"
                                             }
                                         }
                                     ]
@@ -1420,7 +1419,7 @@
                                             "endDate": "2021-12-19T16:00:00.000Z",
                                             "discountSetting": {
                                                 "discountType": "PERCENTAGE",
-                                                "discountPercentage": 0
+                                                "discountPercentage": 10
                                             }
                                         }
                                     ]
