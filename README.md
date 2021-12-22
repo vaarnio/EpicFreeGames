@@ -9,4 +9,4 @@ To send telegram notifications:
 2. add bot to your telegram group
 3. run main.py
 
-Use crontab to run the script at desired intervals.
+Use crontab to run the script at desired intervals. Epic updates their free game offers at 16:00 UTC.
